@@ -7,6 +7,7 @@ db_user = os.getenv("db_user")
 db_password = os.getenv("db_password")
 db_host = os.getenv("db_host")
 db_name = os.getenv("db_name")
+db_port = os.getenv("db_port")
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 LANGCHAIN_TRACING_V2 = os.getenv("LANGCHAIN_TRACING_V2")
@@ -32,7 +33,7 @@ import streamlit as st
 @st.cache_resource
 def get_chain():
     print("Creating chain")
-    db = SQLDatabase.from_uri(f"mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_name}")    
+    db = SQLDatabase.from_uri(f"mysql+pymysql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}")   
     llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
     generate_query = create_sql_query_chain(llm, db,final_prompt) 
     execute_query = QuerySQLDataBaseTool(db=db)

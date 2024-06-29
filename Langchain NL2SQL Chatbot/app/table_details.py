@@ -24,7 +24,7 @@ def get_table_details():
 
 class Table(BaseModel):
     """Table in SQL database."""
-
+    print('PASSEI AQUI')
     name: str = Field(description="Name of table in SQL database.")
 
 def get_tables(tables: List[Table]) -> List[str]:
