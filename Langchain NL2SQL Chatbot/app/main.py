@@ -3,8 +3,8 @@ from openai import OpenAI
 from langchain_utils import invoke_chain
 st.title("Langchain NL2SQL Chatbot")
 
-# Set OpenAI API key from Streamlit secrets
-client = OpenAI(api_key="")
+# Set OpenAI API key from Streamlit secrets 
+client = OpenAI(api_key="sk-proj-")
 
 # Set a default model
 if "openai_model" not in st.session_state:
